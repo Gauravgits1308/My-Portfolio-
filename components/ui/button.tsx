@@ -1,4 +1,5 @@
 import React, { forwardRef } from "react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 export type ButtonVariant =
@@ -16,9 +17,12 @@ export interface ButtonProps
   size?: ButtonSize;
   leadingIcon?: React.ReactNode;
   trailingIcon?: React.ReactNode;
+  href?: string;
+  download?: boolean | string;
+  target?: string;
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
   (
     {
       className,
@@ -27,6 +31,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       leadingIcon,
       trailingIcon,
       disabled,
+      href,
+      download,
+      target,
       children,
       ...props
     },
@@ -58,20 +65,17 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       icon: "bg-surface text-secondary border border-subtle hover:text-primary hover:border-border-medium hover:bg-surface-subtle active:scale-[0.98]",
     }[variant];
 
-    return (
-      <button
-        ref={ref}
-        disabled={disabled}
-        className={cn(
-          "inline-flex items-center justify-center gap-2 rounded-sm select-none transition-all duration-fast",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas",
-          "disabled:opacity-40 disabled:cursor-not-allowed disabled:pointer-events-none disabled:active:scale-100 disabled:shadow-none",
-          sizeClasses,
-          variantClasses,
-          className
-        )}
-        {...props}
-      >
+    const commonClasses = cn(
+      "inline-flex items-center justify-center gap-2 rounded-sm select-none transition-all duration-fast",
+      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-canvas",
+      "disabled:opacity-40 disabled:cursor-not-allowed disabled:pointer-events-none disabled:active:scale-100 disabled:shadow-none",
+      sizeClasses,
+      variantClasses,
+      className
+    );
+
+    const content = (
+      <>
         {leadingIcon && (
           <span className="inline-flex shrink-0 items-center justify-center">
             {leadingIcon}
@@ -83,6 +87,50 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             {trailingIcon}
           </span>
         )}
+      </>
+    );
+
+    if (href) {
+      const isExternal =
+        href.startsWith("http://") ||
+        href.startsWith("https://") ||
+        href.startsWith("mailto:") ||
+        Boolean(download);
+
+      if (isExternal || download) {
+        return (
+          <a
+            ref={ref as React.Ref<HTMLAnchorElement>}
+            href={href}
+            download={download}
+            target={target || (href.startsWith("http") ? "_blank" : undefined)}
+            rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+            className={commonClasses}
+          >
+            {content}
+          </a>
+        );
+      }
+
+      return (
+        <Link
+          ref={ref as React.Ref<HTMLAnchorElement>}
+          href={href}
+          className={commonClasses}
+        >
+          {content}
+        </Link>
+      );
+    }
+
+    return (
+      <button
+        ref={ref as React.Ref<HTMLButtonElement>}
+        disabled={disabled}
+        className={commonClasses}
+        {...props}
+      >
+        {content}
       </button>
     );
   }
