@@ -6,7 +6,7 @@ export function Footer() {
       <div className="layout-container py-space-8 flex flex-col md:flex-row items-center justify-between gap-space-4 text-center md:text-left">
         {/* Left: Copyright */}
         <p className="text-body-small text-secondary">
-          © {new Date().getFullYear()} Gaurav Gupta. All rights reserved.
+          © 2026 Gaurav Gupta. All rights reserved.
         </p>
 
         {/* Center slot: Future social/contact links foundation */}

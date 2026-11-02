@@ -97,7 +97,7 @@ export function ThemeToggle() {
             aria-label={option.label}
             title={option.label}
             onClick={() => setTheme(option.id)}
-            className={`flex items-center gap-1.5 px-2.5 py-1 text-mono-micro rounded-xs transition-colors duration-fast ${
+            className={`flex items-center gap-1.5 px-2.5 py-1 text-mono-micro rounded-xs transition-colors duration-fast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-1 focus-visible:ring-offset-surface ${
               isActive
                 ? "bg-surface-elevated text-accent border border-border-accent shadow-card"
                 : "text-secondary hover:text-primary hover:bg-surface-subtle border border-transparent"
