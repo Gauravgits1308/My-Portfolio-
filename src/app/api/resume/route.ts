@@ -7,7 +7,8 @@ export async function GET(request: NextRequest) {
     const filePath = path.join(process.cwd(), "public", "Gaurav_Gupta_Resume.pdf");
 
     if (!fs.existsSync(filePath)) {
-      return new NextResponse("Resume file not found", { status: 404 });
+      // Fallback redirect directly to the statically served asset
+      return NextResponse.redirect(new URL("/Gaurav_Gupta_Resume.pdf", request.url));
     }
 
     const fileBuffer = fs.readFileSync(filePath);

@@ -377,15 +377,16 @@ export function ProjectsSection() {
                       <ArrowRight className="h-3.5 w-3.5 text-crimson-glow" />
                     </button>
 
-                    {/* Live Demo Button */}
-                    <a
-                      href={PROJECTS_CONFIG.revora.links.liveDemo.url || "#"}
+                    {/* Live Demo Button (Clearly marked private preview) */}
+                    <button
+                      type="button"
                       onClick={(e) => handleLinkClick(e, PROJECTS_CONFIG.revora.links.liveDemo)}
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-void-border bg-void-charcoal hover:border-neutral-muted text-neutral-light hover:text-white font-mono text-xs transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-void-border bg-void-charcoal hover:border-crimson-primary/40 text-neutral-light hover:text-white font-mono text-xs transition-colors cursor-pointer"
+                      title={PROJECTS_CONFIG.revora.links.liveDemo.placeholderMessage}
                     >
                       <span>Live Demo</span>
-                      <ExternalLink className="h-3.5 w-3.5 text-neutral-muted" />
-                    </a>
+                      <span className="text-[10px] text-neutral-muted font-normal">(Preview)</span>
+                    </button>
 
                     {/* GitHub Button */}
                     <a
@@ -541,14 +542,16 @@ export function ProjectsSection() {
                       <ArrowRight className="h-3.5 w-3.5" />
                     </button>
 
-                    <a
-                      href={PROJECTS_CONFIG.cafecloud.links.liveDemo.url || "#"}
+                    {/* Live Demo Button (Clearly marked staging) */}
+                    <button
+                      type="button"
                       onClick={(e) => handleLinkClick(e, PROJECTS_CONFIG.cafecloud.links.liveDemo)}
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-void-border bg-void-charcoal hover:border-neutral-muted text-neutral-light hover:text-white font-mono text-xs transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-void-border bg-void-charcoal hover:border-crimson-primary/40 text-neutral-light hover:text-white font-mono text-xs transition-colors cursor-pointer"
+                      title={PROJECTS_CONFIG.cafecloud.links.liveDemo.placeholderMessage}
                     >
                       <span>Live Demo</span>
-                      <ExternalLink className="h-3.5 w-3.5 text-neutral-muted" />
-                    </a>
+                      <span className="text-[10px] text-neutral-muted font-normal">(Staging)</span>
+                    </button>
 
                     <a
                       href={PROJECTS_CONFIG.cafecloud.links.github.url || "https://github.com/Gauravgits1308"}
@@ -657,14 +660,16 @@ export function ProjectsSection() {
                       <ArrowRight className="h-3.5 w-3.5" />
                     </button>
 
-                    <a
-                      href={PROJECTS_CONFIG.voterlist.links.liveDemo.url || "#"}
+                    {/* Live Demo Button (Clearly marked restricted credentials) */}
+                    <button
+                      type="button"
                       onClick={(e) => handleLinkClick(e, PROJECTS_CONFIG.voterlist.links.liveDemo)}
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-void-border bg-void-charcoal hover:border-neutral-muted text-neutral-light hover:text-white font-mono text-xs transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-void-border bg-void-charcoal hover:border-crimson-primary/40 text-neutral-light hover:text-white font-mono text-xs transition-colors cursor-pointer"
+                      title={PROJECTS_CONFIG.voterlist.links.liveDemo.placeholderMessage}
                     >
                       <span>Live Demo</span>
-                      <ExternalLink className="h-3.5 w-3.5 text-neutral-muted" />
-                    </a>
+                      <span className="text-[10px] text-neutral-muted font-normal">(Restricted)</span>
+                    </button>
 
                     <a
                       href={PROJECTS_CONFIG.voterlist.links.github.url || "https://github.com/Gauravgits1308"}
@@ -796,14 +801,16 @@ export function ProjectsSection() {
                       <ArrowRight className="h-3.5 w-3.5" />
                     </button>
 
-                    <a
-                      href={PROJECTS_CONFIG.portfolio.links.liveDemo.url || "#"}
+                    {/* Live Site Button (Clearly marked active current system) */}
+                    <button
+                      type="button"
                       onClick={(e) => handleLinkClick(e, PROJECTS_CONFIG.portfolio.links.liveDemo)}
-                      className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-void-border bg-void-elevated hover:bg-void-border text-neutral-white font-mono text-xs transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-void-border bg-void-elevated hover:bg-void-border text-neutral-white font-mono text-xs transition-colors cursor-pointer"
+                      title={PROJECTS_CONFIG.portfolio.links.liveDemo.placeholderMessage}
                     >
                       <span>Live Site</span>
-                      <ExternalLink className="h-3 w-3 text-crimson-glow" />
-                    </a>
+                      <span className="text-[10px] text-neutral-muted font-normal">(Active)</span>
+                    </button>
 
                     <a
                       href={PROJECTS_CONFIG.portfolio.links.github.url || "https://github.com/Gauravgits1308"}

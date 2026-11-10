@@ -20,8 +20,12 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Environment variables
+# Environment variables and secrets
+.env
+.env.local
+.env.*
 .env*.local
+*.local
 
 # macOS metadata
 .DS_Store
