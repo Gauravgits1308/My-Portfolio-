@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-void: #050507;
+  --color-void-charcoal: #0B0C0E;
+  --color-void-elevated: #121316;
+  --color-void-subtle: #181A20;
+  --color-void-border: #23252E;
+  --color-void-border-bright: #343744;
+  
+  --color-crimson-glow: #FF2E5B;
+  --color-crimson-primary: #E11D48;
+  --color-crimson-deep: #BE123C;
+  --color-crimson-dark: #881337;
+
+  --color-burgundy-vivid: #6B0D1E;
+  --color-burgundy-deep: #3D0811;
+  --color-burgundy-void: #1A0307;
+
+  --color-neutral-white: #F4F4F6;
+  --color-neutral-light: #E1E2E8;
+  --color-neutral-body: #D1D2D9;
+  --color-neutral-muted: #8E8F99;
+  --color-neutral-dark: #52535F;
+  --color-neutral-dim: #2A2C35;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background-color: var(--color-void);
+    color: var(--color-neutral-white);
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    min-height: 100vh;
+    background-color: var(--color-void);
+    color: var(--color-neutral-body);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(225, 29, 72, 0.35);
+    color: #FFFFFF;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-crimson-primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08080A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #23252E;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E11D48;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Atmospheric backdrop glow utilities */
+.glow-crimson {
+  text-shadow: 0 0 24px rgba(225, 29, 72, 0.45);
+}
+
+.box-glow-crimson {
+  box-shadow: 0 0 35px -5px rgba(225, 29, 72, 0.25);
+}
+
+.box-glow-burgundy {
+  box-shadow: 0 0 50px -10px rgba(61, 8, 17, 0.5);
+}
+
+.subtle-border {
+  border: 1px solid var(--color-void-border);
+}
+
+.subtle-border:hover {
+  border-color: var(--color-void-border-bright);
+}
