@@ -7,7 +7,6 @@ import { AboutSection } from "@/components/sections/AboutSection";
 import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
 import { AchievementsSection } from "@/components/sections/AchievementsSection";
-import { CreativeSection } from "@/components/sections/CreativeSection";
 import { ResumeSection } from "@/components/sections/ResumeSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 
@@ -32,13 +31,10 @@ export default function PortfolioHomePage() {
       {/* 06. Recognitions, Hackathons & Verified Industry Certifications */}
       <AchievementsSection />
 
-      {/* 07. Visual Storytelling & Architectural Photography */}
-      <CreativeSection />
-
-      {/* 08. Verified Single-Page Resume Callout */}
+      {/* 07. Verified Single-Page Resume Callout */}
       <ResumeSection />
 
-      {/* 09. Direct, Personal Communication & Contact */}
+      {/* 08. Direct, Personal Communication & Contact */}
       <ContactSection />
     </div>
   );

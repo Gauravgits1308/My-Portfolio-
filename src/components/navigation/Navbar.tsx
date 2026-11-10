@@ -15,7 +15,6 @@ const NAV_LINKS = [
   { href: "#experience", label: "Experience" },
   { href: "#skills", label: "Stack" },
   { href: "#achievements", label: "Honors" },
-  { href: "#creative", label: "Beyond the Code" },
   { href: "#contact", label: "Get in Touch" },
 ];
 

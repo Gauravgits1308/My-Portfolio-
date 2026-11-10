@@ -59,7 +59,9 @@ const config: Config = {
         float: "float 6s ease-in-out infinite",
         "name-shimmer": "name-shimmer 7s ease-in-out infinite",
         "hero-sweep": "hero-sweep 8s ease-in-out infinite",
+        "hero-light-sweep": "hero-light-sweep 2.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
         "accent-sweep": "accent-sweep 6s ease-in-out infinite",
+        "accent-expand": "accent-expand 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards",
         "accent-pulse": "accent-pulse 4s ease-in-out infinite",
       },
       keyframes: {
@@ -79,9 +81,17 @@ const config: Config = {
           "0%": { backgroundPosition: "200% 0" },
           "100%": { backgroundPosition: "-200% 0" },
         },
+        "hero-light-sweep": {
+          "0%": { backgroundPosition: "200% 0", opacity: "0.8" },
+          "100%": { backgroundPosition: "-50% 0", opacity: "1" },
+        },
         "accent-sweep": {
           "0%, 100%": { transform: "scaleX(0.5) translateX(-10%)", opacity: "0.4" },
           "50%": { transform: "scaleX(1) translateX(0%)", opacity: "0.95" },
+        },
+        "accent-expand": {
+          "0%": { transform: "scaleX(0)", opacity: "0" },
+          "100%": { transform: "scaleX(1)", opacity: "1" },
         },
         "accent-pulse": {
           "0%, 100%": { transform: "scaleX(0.7)", opacity: "0.5" },

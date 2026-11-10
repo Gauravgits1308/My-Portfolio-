@@ -198,7 +198,7 @@ const PROJECT_DETAILS: Record<string, ProjectDetailData> = {
     imageSrc: "/assets/Projects/Portfolio.png",
     imageAlt: "Personal Developer Portfolio Website Preview",
     overview:
-      "A meticulously designed developer portfolio crafted with Next.js App Router, TypeScript, and Three.js. Showcases distributed systems, technical projects, and creative photography with dark crimson aesthetics, reduced-motion accessibility, and interactive 3D spatial scenes.",
+      "A meticulously designed developer portfolio crafted with Next.js App Router, TypeScript, and Three.js. Showcases distributed systems, technical projects, and systems architecture with dark crimson aesthetics, reduced-motion accessibility, and interactive 3D spatial scenes.",
     stack: ["Next.js", "TypeScript", "Three.js", "Tailwind CSS", "Framer Motion"],
     githubUrl: "https://github.com/Gauravgits1308",
     technicalHighlights: [
@@ -263,7 +263,7 @@ export function ProjectsSection() {
                 {"//"} 01. SELECTED WORKS
               </span>
               <h2 className="font-display text-3xl sm:text-5xl font-bold text-neutral-white">
-                Selected Project Showcase
+                Project Showcase
               </h2>
             </div>
             <p className="font-mono text-xs text-neutral-muted sm:text-right">
@@ -280,15 +280,22 @@ export function ProjectsSection() {
           )}
 
           {/* CATEGORY 1: FEATURED PROJECTS */}
-          <div className="space-y-16">
-            <div className="flex items-center gap-3 pb-2 border-b border-void-border/30">
-              <span className="h-2 w-2 rounded-full bg-crimson-primary" />
-              <h3 className="font-mono text-xs tracking-widest text-neutral-white uppercase font-bold">
-                Featured Projects
-              </h3>
-              <span className="font-mono text-[10px] text-neutral-muted">
-                (Primary Case Studies &amp; Core Systems)
-              </span>
+          <div className="space-y-12">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-4 border-b border-crimson-primary/30">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-crimson-glow animate-pulse" />
+                  <span className="font-mono text-[10px] text-crimson-glow uppercase tracking-widest font-semibold">
+                    TIER 01 • PRIMARY ARCHITECTURAL BUILDS
+                  </span>
+                </div>
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-neutral-white">
+                  Featured Projects
+                </h3>
+              </div>
+              <p className="font-mono text-xs text-neutral-muted sm:text-right">
+                Flagship AI, Distributed Backends &amp; Production Systems
+              </p>
             </div>
 
             {/* PROJECT 1: REVORA (FLAGSHIP PROJECT) */}
@@ -453,6 +460,20 @@ export function ProjectsSection() {
                     ))}
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* SECTION DIVIDER: ADDITIONAL ENGINEERING BUILDS (IMMEDIATELY ABOVE CAFE CLOUD) */}
+            <div className="relative py-10 sm:py-12 flex items-center justify-center">
+              <div className="absolute inset-0 flex items-center" aria-hidden="true">
+                <div className="w-full border-t border-void-border/80" />
+              </div>
+              <div className="relative px-5 py-2 rounded-full border border-void-border-bright bg-void-elevated/95 backdrop-blur-md flex items-center gap-2.5 text-neutral-muted font-mono text-xs shadow-lg">
+                <span className="h-1.5 w-1.5 rounded-full bg-crimson-primary" />
+                <span className="tracking-wider uppercase text-[11px] text-neutral-light font-medium">
+                  ADDITIONAL ENGINEERING BUILDS
+                </span>
+                <span className="h-1.5 w-1.5 rounded-full bg-crimson-primary" />
               </div>
             </div>
 
@@ -687,16 +708,20 @@ export function ProjectsSection() {
             </div>
           </div>
 
-          {/* CATEGORY 2: OTHER PROJECTS (FOLLOWS CONSISTENT COMPACT PORTFOLIO PROJECT LAYOUT) */}
-          <div className="space-y-8 pt-16">
-            <div className="flex items-center gap-3 pb-2 border-b border-void-border/30">
-              <span className="h-2 w-2 rounded-full bg-neutral-muted" />
-              <h3 className="font-mono text-xs tracking-widest text-neutral-muted uppercase font-bold">
-                Other Projects
-              </h3>
-              <span className="font-mono text-[10px] text-neutral-muted">
-                (Focused Builds &amp; Active Systems)
-              </span>
+          {/* CATEGORY 2: OTHER PROJECTS */}
+          <div className="space-y-6 pt-12">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-3 border-b border-void-border/50">
+              <div className="space-y-1">
+                <span className="font-mono text-[10px] text-neutral-muted uppercase tracking-widest block font-medium">
+                  TIER 02 // SINGLE-PURPOSE APPLICATIONS
+                </span>
+                <h3 className="font-display text-xl sm:text-2xl font-bold text-neutral-white">
+                  Other Projects
+                </h3>
+              </div>
+              <p className="font-mono text-xs text-neutral-muted sm:text-right">
+                Focused Applications &amp; Production Tools
+              </p>
             </div>
 
             {/* Compact Card with Consistent 16:9 Image Treatment */}

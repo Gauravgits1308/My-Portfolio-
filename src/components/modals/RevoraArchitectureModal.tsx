@@ -57,30 +57,31 @@ export function RevoraArchitectureModal({ isOpen, onClose }: RevoraArchitectureM
       role="dialog"
       aria-modal="true"
       aria-labelledby="revora-arch-title"
-      className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 md:p-6 bg-void-black/95 backdrop-blur-2xl overflow-y-auto animate-in fade-in duration-200"
+      className="fixed top-16 left-0 right-0 bottom-0 z-30 flex items-center justify-center p-0 sm:p-4 md:p-6 bg-void-black/90 backdrop-blur-2xl overflow-hidden animate-in fade-in duration-200"
       onClick={onClose}
+      style={{ height: "calc(100dvh - 4rem)" }}
     >
-      {/* Modal Container with strict stacking above any navbar */}
+      {/* Panel Container positioned entirely below navbar with calculated available space */}
       <div
-        className="relative w-full max-w-6xl my-auto rounded-2xl border border-crimson-primary/40 bg-void-charcoal/95 shadow-2xl shadow-crimson-primary/10 overflow-hidden flex flex-col max-h-[92vh] sm:max-h-[94vh]"
+        className="relative w-full max-w-6xl h-full flex flex-col rounded-none sm:rounded-2xl border-x-0 sm:border-x border-t-0 sm:border-t border-b-0 sm:border-b border-crimson-primary/40 bg-void-charcoal/95 shadow-2xl shadow-crimson-primary/10 overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Sticky Top Header with Elevated Stacking */}
-        <div className="sticky top-0 z-30 flex items-center justify-between px-5 sm:px-8 py-4 border-b border-void-border/70 bg-void-elevated/95 backdrop-blur-xl">
+        {/* Panel Header — Docked at the top of the panel, fully visible below navbar */}
+        <div className="shrink-0 flex items-center justify-between px-5 sm:px-8 py-3.5 border-b border-void-border/70 bg-void-elevated/95 backdrop-blur-xl">
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-xl bg-crimson-primary/15 border border-crimson-primary/30 flex items-center justify-center text-crimson-glow shrink-0">
+            <div className="h-9 w-9 sm:h-10 sm:w-10 rounded-xl bg-crimson-primary/15 border border-crimson-primary/30 flex items-center justify-center text-crimson-glow shrink-0">
               <Cpu className="h-5 w-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h2 id="revora-arch-title" className="font-display text-base sm:text-xl font-bold text-neutral-white">
+                <h2 id="revora-arch-title" className="font-display text-sm sm:text-lg font-bold text-neutral-white truncate">
                   Revora — System Architecture &amp; Engineering Blueprint
                 </h2>
                 <span className="hidden sm:inline-block px-2.5 py-0.5 rounded-full font-mono text-[10px] text-crimson-glow bg-crimson-primary/10 border border-crimson-primary/30">
-                  Continuous Technical Blueprint
+                  Continuous Blueprint
                 </span>
               </div>
-              <p className="font-mono text-xs text-neutral-muted">
+              <p className="font-mono text-[11px] sm:text-xs text-neutral-muted truncate">
                 Asynchronous AST Parsing • BullMQ Workers • PostgreSQL &amp; pgvector • Grounded LLM Reasoning
               </p>
             </div>
@@ -88,15 +89,15 @@ export function RevoraArchitectureModal({ isOpen, onClose }: RevoraArchitectureM
 
           <button
             onClick={onClose}
-            className="p-2 rounded-xl border border-void-border hover:border-crimson-primary/50 bg-void-charcoal text-neutral-muted hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crimson-glow"
-            aria-label="Close Architecture Modal"
+            className="p-2 rounded-xl border border-void-border hover:border-crimson-primary/50 bg-void-charcoal text-neutral-muted hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crimson-glow shrink-0 ml-2"
+            aria-label="Close Architecture Panel"
           >
             <X className="h-5 w-5" />
           </button>
         </div>
 
-        {/* Single Vertically Scrollable Content Panel */}
-        <div className="p-5 sm:p-8 lg:p-10 overflow-y-auto space-y-16 scroll-smooth">
+        {/* Independent Vertically Scrollable Content Area */}
+        <div className="flex-1 overflow-y-auto overscroll-contain p-5 sm:p-8 lg:p-10 space-y-16 scroll-smooth pb-36">
           
           {/* SECTION 1: HIGH-LEVEL ARCHITECTURAL OVERVIEW */}
           <section className="space-y-4 border-b border-void-border/40 pb-10">
@@ -656,14 +657,14 @@ export function RevoraArchitectureModal({ isOpen, onClose }: RevoraArchitectureM
           </section>
         </div>
 
-        {/* Modal Footer with Dismiss Trigger */}
-        <div className="sticky bottom-0 z-30 px-6 py-4 border-t border-void-border/70 bg-void-elevated/95 backdrop-blur-xl flex items-center justify-between">
+        {/* Panel Footer Bar — Docked at the bottom without covering content */}
+        <div className="shrink-0 px-6 py-3.5 border-t border-void-border/70 bg-void-elevated/95 backdrop-blur-xl flex items-center justify-between">
           <span className="font-mono text-[10px] text-neutral-muted hidden sm:inline-block">
             Revora Architecture Specification • Production-Aligned Engineering Blueprint
           </span>
           <button
             onClick={onClose}
-            className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-crimson-primary hover:bg-crimson-hover text-white font-mono text-xs font-semibold transition-colors"
+            className="w-full sm:w-auto px-6 py-2 rounded-xl bg-crimson-primary hover:bg-crimson-hover text-white font-mono text-xs font-semibold transition-colors"
           >
             Close Blueprint Panel
           </button>

@@ -2,12 +2,16 @@
 
 import React from "react";
 import { ArrowDown, FileText } from "lucide-react";
+import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { MotionReveal } from "@/components/motion/MotionReveal";
 import { ThreeCanvas } from "@/components/three/ThreeCanvas";
 import { SystemsCore } from "@/components/three/SystemsLattice/SystemsCore";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
 
 export function HeroSection() {
+  const reducedMotion = useReducedMotion();
+
   return (
     <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden border-b border-void-border/40 pt-16 pb-20">
       {/* Background Spatial Atmosphere Layer */}
@@ -24,23 +28,60 @@ export function HeroSection() {
                 <span className="h-1.5 w-1.5 rounded-full bg-crimson-primary animate-pulse" />
                 <span>IIIT KOTA &apos;28 • FORMER SDE INTERN @ ORASIS</span>
               </div>
+            </MotionReveal>
 
-              {/* Name with refined complete heading animation & Role */}
-              <div className="pt-2">
-                <div className="relative inline-block max-w-full">
-                  <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight bg-gradient-to-r from-neutral-white via-crimson-glow via-50% to-neutral-white bg-[length:250%_auto] bg-clip-text text-transparent animate-hero-sweep">
-                    Hi, I&apos;m Gaurav.
-                  </h1>
-                  <div
-                    className="h-[2px] w-full rounded-full bg-gradient-to-r from-transparent via-crimson-primary to-transparent animate-accent-sweep mt-2 origin-left"
-                    aria-hidden="true"
-                  />
+            {/* Premium Masked Typography Reveal */}
+            <div className="pt-2">
+              <div className="relative inline-block max-w-full">
+                {/* Subtle baseline clipping / masking container */}
+                <div className="overflow-hidden pb-2 pt-1">
+                  <motion.h1
+                    initial={reducedMotion ? false : { y: "115%", opacity: 0 }}
+                    animate={{ y: "0%", opacity: 1 }}
+                    transition={{
+                      duration: 0.85,
+                      ease: [0.16, 1, 0.3, 1],
+                      delay: reducedMotion ? 0 : 0.15,
+                    }}
+                    className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-neutral-white"
+                  >
+                    Hi, I&apos;m{" "}
+                    <motion.span
+                      initial={reducedMotion ? false : { color: "rgba(240, 240, 245, 0.85)" }}
+                      animate={{ color: "#ffffff" }}
+                      transition={{
+                        duration: 0.6,
+                        delay: reducedMotion ? 0 : 0.65,
+                        ease: "easeOut",
+                      }}
+                      className="text-white font-extrabold tracking-tight"
+                    >
+                      Gaurav
+                    </motion.span>
+                  </motion.h1>
                 </div>
-                <p className="font-mono text-sm sm:text-base text-crimson-glow font-medium mt-3 tracking-wide">
-                  Software Development Engineer &amp; Creative Technologist
-                </p>
+
+                {/* Thin, elegant crimson accent underneath the heading appearing after text reveal */}
+                <motion.div
+                  initial={reducedMotion ? false : { scaleX: 0, opacity: 0 }}
+                  animate={{ scaleX: 1, opacity: 1 }}
+                  transition={{
+                    delay: reducedMotion ? 0 : 0.85,
+                    duration: 0.65,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  style={{ transformOrigin: "left" }}
+                  className="h-[2px] w-24 sm:w-36 bg-crimson-primary mt-2.5 rounded-full"
+                  aria-hidden="true"
+                />
               </div>
 
+              <p className="font-mono text-sm sm:text-base text-crimson-glow font-medium mt-3 tracking-wide">
+                Software Development Engineer &amp; Creative Technologist
+              </p>
+            </div>
+
+            <MotionReveal delay={0.25}>
               {/* Memorable Concise Headline */}
               <p className="font-display text-2xl sm:text-3xl text-neutral-light font-normal leading-snug max-w-2xl pt-2">
                 Building resilient distributed backends, semantic retrieval systems, and thoughtful spatial interfaces.
